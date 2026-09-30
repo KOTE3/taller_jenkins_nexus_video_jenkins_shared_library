@@ -15,7 +15,7 @@ def call(Map params = [:]) {
         withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
             sh """
                 mvn -B clean deploy -DskipTests \\
-                    -DaltDeploymentRepository=nexus::default::http://\$NEXUS_USER:\$NEXUS_PASS@${nexusHost}:8081/repository/maven-releases/
+                    -DaltDeploymentRepository=nexus::default::http://\$NEXUS_USER:\$NEXUS_PASS@${nexusHost}:8081/repository/maven-snapshots/
             """
         }
     }

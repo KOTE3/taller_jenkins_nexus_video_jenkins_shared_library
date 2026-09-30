@@ -14,8 +14,8 @@ def call(Map params = [:]) {
         echo "Publishing JAR to Nexus..."
         withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
             sh """
-                mvn -B clean deploy -DskipTests \ 
-                    -DaltDeploymentRepository=nexus::default::http://${NEXUS_USER}:${NEXUS_PASS}@${nexusHost}:8081/repository/maven-releases/
+                mvn -B clean deploy -DskipTests \\
+                    -DaltDeploymentRepository=nexus::default::http://\$NEXUS_USER:\$NEXUS_PASS@${nexusHost}:8081/repository/maven-releases/
             """
         }
     }

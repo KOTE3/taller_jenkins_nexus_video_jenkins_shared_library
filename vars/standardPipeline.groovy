@@ -13,11 +13,11 @@ def call(Map rawConfig = [:]) {
             timestamps()
         }
         environment {
-            NEXUS_HOST = cfg.nexusHost
-            DOCKER_PORT = cfg.dockerport
-            SERVICE_NAME = cfg.serviceName
-            DEPLOY_TARGET = cfg.deployTarget
-            HEALTH_ENDPOINT = cfg.healthEndpoint
+            NEXUS_HOST      = "${cfg.nexusHost}"
+            DOCKER_PORT     = "${cfg.dockerport}"
+            SERVICE_NAME    = "${cfg.serviceName}"
+            DEPLOY_TARGET   = "${cfg.deployTarget}"
+            HEALTH_ENDPOINT = "${cfg.healthEndpoint}"
         }
         stages {
             stage('Checkout SCM') {

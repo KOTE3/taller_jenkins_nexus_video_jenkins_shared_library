@@ -32,7 +32,7 @@ RUN (groupadd -g ${DOCKER_GID} docker || groupmod -g ${DOCKER_GID} docker || tru
 
 # 3. Preinstalar plugins esenciales para Pipelines, GitHub Webhooks, Docker y Shared Libraries
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
-RUN jenkins-plugin-cli --plugins-file /usr/share/jenkins/ref/plugins.txt || true
+RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt || true
 
 # 4. Regresar al usuario estándar seguro de Jenkins
 USER jenkins

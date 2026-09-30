@@ -1,7 +1,7 @@
 import org.iaslab.cicd.PipelineConfig
 
 def call(Map rawConfig = [:]) {
-    PipelineConfig cfg = new PipeLineConfig(rawConfig)
+    PipelineConfig cfg = new PipelineConfig(rawConfig)
     String deployedImage = ""
     boolean deployAttempted = false
 
